@@ -8,32 +8,33 @@ function getComputerChoice() {
     console.log(randomNum, computerChoice);
 }
 const drawMessage = 'Draw!';
-const winMessage = 'Player wins!';
-const loseMessage = 'Computer wins!';
+const winMessage = 'Victory!';
+const loseMessage = 'Defeat!';
 
 function playRound(playerChoice, computerChoice) {
     let choiceCombination = playerChoice + computerChoice;
     if (playerChoice === computerChoice) {
         console.log(drawMessage);
+        return choiceCombination;
     };
     switch (choiceCombination) {
         case 'rockpaper':
-            console.log(loseMessage);
+            console.log(`${loseMessage} Paper beats rock!`);
             break;
         case 'rockscissors':
-            console.log(winMessage);
+            console.log(`${winMessage} Rock beats scissors!`);
             break;
         case 'paperrock':
-            console.log(winMessage);
+            console.log(`${winMessage} Paper beats rock!`);
             break;
         case 'paperscissors':
-            console.log(loseMessage);
+            console.log(`${loseMessage} Scissors beat paper!`);
             break;
         case 'scissorsrock':
-            console.log(loseMessage);
+            console.log(`${loseMessage} Rock beats scissors!`);
             break;
         case 'scissorspaper':
-            console.log(winMessage);
+            console.log(`${winMessage} Scissors beat paper!`);
             break;
         default:
             console.log('SWITCH_STATEMENT_ERROR');
