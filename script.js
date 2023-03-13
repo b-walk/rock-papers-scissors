@@ -12,6 +12,7 @@ const winMessage = 'Victory!';
 const loseMessage = 'Defeat!';
 
 function playRound(playerChoice, computerChoice) {
+    playerChoice = playerChoice.toLowerCase();
     let choiceCombination = playerChoice + computerChoice;
     if (playerChoice === computerChoice) {
         console.log(drawMessage);
