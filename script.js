@@ -15,7 +15,6 @@ function playRound(playerChoice, computerChoice) {
     let choiceCombination = playerChoice + computerChoice;
     if (playerChoice === computerChoice) {
         console.log(drawMessage);
-        return choiceCombination;
     };
     switch (choiceCombination) {
         case 'rockpaper':
