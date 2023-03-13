@@ -7,3 +7,6 @@ function getComputerChoice() {
     computerChoice = 'scissors';
     console.log(randomNum, computerChoice);
 }
+const drawMessage = 'Draw!';
+const winMessage = 'Player wins!';
+const loseMessage = 'Computer wins!';
