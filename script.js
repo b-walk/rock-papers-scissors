@@ -44,9 +44,11 @@ function playRound(playerChoice, computerChoice) {
 
 }
 
-let playerScore = 0;
-let computerScore = 0;
+let playerScore;
+let computerScore;
 function game() {
+    playerScore = 0;
+    computerScore = 0;
     for (let i = 0; i < 5; i++) {
         let playerChoice = prompt('Type your selection of rock, paper, or scissors.', '');
         playerChoice = playerChoice.toLowerCase();
