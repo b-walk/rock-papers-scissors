@@ -5,7 +5,7 @@ function getComputerChoice() {
     (randomNum === 0) ? computerChoice = 'rock' :
     (randomNum === 1) ? computerChoice = 'paper' :
     computerChoice = 'scissors';
-    console.log(randomNum, computerChoice);
+    return computerChoice;
 }
 const drawMessage = 'Draw!';
 const winMessage = 'Victory!';
@@ -21,24 +21,41 @@ function playRound(playerChoice, computerChoice) {
     switch (choiceCombination) {
         case 'rockpaper':
             console.log(`${loseMessage} Paper beats rock!`);
+            return choiceCombination;
             break;
         case 'rockscissors':
             console.log(`${winMessage} Rock beats scissors!`);
+            return choiceCombination;
             break;
         case 'paperrock':
             console.log(`${winMessage} Paper beats rock!`);
+            return choiceCombination;
             break;
         case 'paperscissors':
             console.log(`${loseMessage} Scissors beat paper!`);
+            return choiceCombination;
             break;
         case 'scissorsrock':
             console.log(`${loseMessage} Rock beats scissors!`);
+            return choiceCombination;
             break;
         case 'scissorspaper':
             console.log(`${winMessage} Scissors beat paper!`);
+            return choiceCombination;
             break;
         default:
             console.log('SWITCH_STATEMENT_ERROR');
+            return choiceCombination;
     }
 
+}
+
+function game() {
+    let playerChoice;
+    for (let i = 0; i < 5; i++) {
+        playerChoice = prompt('Type your selection of rock, paper, or scissors.', '');
+        getComputerChoice();
+        playRound(playerChoice, computerChoice);
+
+    }
 }
