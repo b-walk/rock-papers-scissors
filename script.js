@@ -41,9 +41,6 @@ function playRound(playerChoice, computerChoice) {
         case 'scissorspaper':
             console.log(`${winMessage} Scissors beat paper!`);
             playerScore += 1;
-            break;
-        default:
-            console.log('SWITCH_STATEMENT_ERROR');
     }
 
 }
