@@ -1,4 +1,3 @@
-let computerChoice;
 function getComputerChoice() {
     const randomNum = Math.floor(Math.random() * 3);
     (randomNum === 0) ? computerChoice = 'rock' :
@@ -6,13 +5,13 @@ function getComputerChoice() {
     computerChoice = 'scissors';
     return computerChoice;
 }
+let computerChoice;
 
 const drawMessage = 'Draw!';
 const winMessage = 'Victory!';
 const loseMessage = 'Defeat!';
 
 function playRound(playerChoice, computerChoice) {
-    playerChoice = playerChoice.toLowerCase();
     let choiceCombination = playerChoice + computerChoice;
     if (playerChoice === computerChoice) {
         console.log(drawMessage);
@@ -21,31 +20,30 @@ function playRound(playerChoice, computerChoice) {
     switch (choiceCombination) {
         case 'rockpaper':
             console.log(`${loseMessage} Paper beats rock!`);
-            return choiceCombination;
+            computerScore += 1;
             break;
         case 'rockscissors':
             console.log(`${winMessage} Rock beats scissors!`);
-            return choiceCombination;
+            playerScore += 1;
             break;
         case 'paperrock':
             console.log(`${winMessage} Paper beats rock!`);
-            return choiceCombination;
+            playerScore += 1;
             break;
         case 'paperscissors':
             console.log(`${loseMessage} Scissors beat paper!`);
-            return choiceCombination;
+            computerScore += 1;
             break;
         case 'scissorsrock':
             console.log(`${loseMessage} Rock beats scissors!`);
-            return choiceCombination;
+            computerScore += 1;
             break;
         case 'scissorspaper':
             console.log(`${winMessage} Scissors beat paper!`);
-            return choiceCombination;
+            playerScore += 1;
             break;
         default:
             console.log('SWITCH_STATEMENT_ERROR');
-            return choiceCombination;
     }
 
 }
@@ -53,11 +51,11 @@ function playRound(playerChoice, computerChoice) {
 let playerScore = 0;
 let computerScore = 0;
 function game() {
-    let playerChoice;
     for (let i = 0; i < 5; i++) {
-        playerChoice = prompt('Type your selection of rock, paper, or scissors.', '');
+        let playerChoice = prompt('Type your selection of rock, paper, or scissors.', '');
+        playerChoice = playerChoice.toLowerCase();
         getComputerChoice();
         playRound(playerChoice, computerChoice);
-
     }
+    console.log(`Player score: ${playerScore}\n Computer score: ${computerScore}`);
 }
