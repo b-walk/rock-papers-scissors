@@ -1,5 +1,4 @@
 let computerChoice;
-getComputerChoice();
 function getComputerChoice() {
     const randomNum = Math.floor(Math.random() * 3);
     (randomNum === 0) ? computerChoice = 'rock' :
@@ -7,6 +6,7 @@ function getComputerChoice() {
     computerChoice = 'scissors';
     return computerChoice;
 }
+
 const drawMessage = 'Draw!';
 const winMessage = 'Victory!';
 const loseMessage = 'Defeat!';
@@ -50,6 +50,8 @@ function playRound(playerChoice, computerChoice) {
 
 }
 
+let playerScore = 0;
+let computerScore = 0;
 function game() {
     let playerChoice;
     for (let i = 0; i < 5; i++) {
