@@ -97,6 +97,7 @@ function incrementScore(victor) {
         return 'ERROR';
     }
     victor === 'player' ? ++playerScore : ++computerScore;
+    updateScoreDisplays();
 }
 function updateScoreDisplays() {
     playerScoreDisplay.textContent = playerScore;
@@ -104,5 +105,15 @@ function updateScoreDisplays() {
 }
 
 function updateNotificationDisplay(notificationMessage) {
-    notificationDisplay.textContent = notificationMessage;
+    if (playerScore === 5) {
+        notificationDisplay.textContent = `${notificationMessage} Player has won! Scores will now be reset to 0.`;
+        playerScore = 0;
+        computerScore = 0;
+    } else if (computerScore === 5) {
+        notificationDisplay.textContent = `${notificationMessage} Computer has won! Scores will now be reset to 0.`;
+        playerScore = 0;
+        computerScore = 0;
+    } else {
+        notificationDisplay.textContent =  `${notificationMessage}`;
+    }
 }
