@@ -65,7 +65,6 @@ function playRound(playerChoice) {
         case 'rockpaper':
             incrementScore('computer');
             updateNotificationDisplay(LOSE_ROCK);
-            playerScoreDisplay.textContent = 
             break;
         case 'rockscissors':
             incrementScore('player');
