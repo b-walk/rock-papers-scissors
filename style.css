@@ -10,3 +10,7 @@ body {
 * {
     font-family: 'Times New Roman', serif, sans-serif;
 }
+
+.flex {
+    display: flex;
+}
