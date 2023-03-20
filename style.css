@@ -49,4 +49,11 @@ button,
     font-size: 35px;
     text-align: center;
 }
-
+#button-container {
+    align-self: center;
+    gap: 10px;
+}
+#button-container > button {
+    font-size: 30px;
+    font-weight: 900;
+}
