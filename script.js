@@ -43,17 +43,3 @@ function playRound(playerChoice, computerChoice) {
     }
 
 }
-
-let playerScore;
-let computerScore;
-function game() {
-    playerScore = 0;
-    computerScore = 0;
-    for (let i = 0; i < 5; i++) {
-        let playerChoice = prompt('Type your selection of rock, paper, or scissors.', '');
-        playerChoice = playerChoice.toLowerCase();
-        getComputerChoice();
-        playRound(playerChoice, computerChoice);
-    }
-    console.log(`Player score: ${playerScore}\n Computer score: ${computerScore}`);
-}
