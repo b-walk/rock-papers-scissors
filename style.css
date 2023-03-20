@@ -1,0 +1,12 @@
+html {
+    height: 100vh;
+}
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+* {
+    font-family: 'Times New Roman', serif, sans-serif;
+}
