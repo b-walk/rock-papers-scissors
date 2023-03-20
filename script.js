@@ -21,6 +21,13 @@ const rockMessage = 'Rock crushes scissors!';
 const paperMessage = 'Paper covers rock!';
 const scissorsMessage = 'Scissors cut paper!';
 
+const WIN_ROCK = `${winMessage} ${rockMessage}`;
+const LOSE_ROCK = `${loseMessage} ${rockMessage}`;
+const WIN_PAPER = `${winMessage} ${paperMessage}`;
+const LOSE_PAPER = `${loseMessage} ${paperMessage}`;
+const WIN_SCISSORS = `${winMessage} ${scissorsMessage}`;
+const LOSE_SCISSORS = `${loseMessage} ${scissorsMessage}`;
+
 //Establishes button references
 const rockButton = document.querySelector('#rock');
 const paperButton = document.querySelector('#paper');
@@ -28,7 +35,10 @@ const scissorsButton = document.querySelector('#scissors');
 
 //Establishes scoreboard references
 const playerScoreDisplay = document.querySelector('#player-score');
-const computerScoreDisplay = document.querySelector('#computer-score')
+const computerScoreDisplay = document.querySelector('#computer-score');
+
+//Establishes notification box reference
+const notificationDisplay = document.querySelector('#notification');
 
 //Executes the playRound function on button click
 let playerChoice;
@@ -42,47 +52,62 @@ scissorsButton.addEventListener('click', () => {
     playRound('scissors');
 });
 
-let playerScore;
-let computerScore;
+let playerScore = 0;
+let computerScore = 0;
 function playRound(playerChoice) {
-    getComputerChoice();
-    if (playerChoice === computerChoice) console.log(drawMessage);
+    let computerChoice = getComputerChoice();
+    if (playerChoice === computerChoice) {
+        console.log(drawMessage);
+        return;
+    };
     let choiceCombination = playerChoice + computerChoice;
     switch (choiceCombination) {
         case 'rockpaper':
-            console.log(`${loseMessage} ${paperMessage}`);
-            ++computerScore;
+            incrementScore('computer');
+            updateNotificationDisplay(LOSE_ROCK);
+            playerScoreDisplay.textContent = 
             break;
         case 'rockscissors':
-            console.log(`${winMessage} ${rockMessage}`);
-            ++playerScore;
+            incrementScore('player');
+            updateNotificationDisplay(WIN_ROCK);
             break;
         case 'paperrock':
-            console.log(`${winMessage} ${paperMessage}`);
-            ++playerScore;
+            incrementScore('player');
+            updateNotificationDisplay(WIN_PAPER);
             break;
         case 'paperscissors':
-            console.log(`${loseMessage} ${scissorsMessage}`);
-            ++computerScore;
+            incrementScore('computer');
+            updateNotificationDisplay(LOSE_PAPER);
             break;
         case 'scissorsrock':
-            console.log(`${loseMessage} ${rockMessage}`);
-            ++computerScore;
+            incrementScore('computer');
+            updateNotificationDisplay(LOSE_SCISSORS);
             break;
         case 'scissorspaper':
-            console.log(`${winMessage} ${scissorsMessage}`);
-            ++playerScore;
+            incrementScore('player');
+            updateNotificationDisplay(WIN_SCISSORS);
             break;
         default:
-            console.log('ERROR');
+            incrementScore(null);
     }
-    if (playerScore === 5) {
-        console.log('Player has won!\nScores will now be reset to 0.');
-        playerScore = 0;
-        computerScore = 0;
-    } else if (computerScore === 5) {
-        console.log('Computer has won!\nScores will now be reset to 0.');
-        playerScore = 0;
-        computerScore = 0;
+}
+
+function incrementScore(victor) {
+    if (!victor) {
+        console.log('ERROR');
+        return 'ERROR';
     }
+    victor === 'player' ? ++playerScore : ++computerScore;
+}
+function updateScoreDisplays() {
+    playerScoreDisplay.textContent = playerScore.toString();
+    computerScoreDisplay.textContent = computerScore.toString();
+}
+
+function updateNotificationDisplay(notificationMessage) {
+    if (!victor) {
+        console.log('ERROR');
+        return 'ERROR';
+    }
+    notificationDisplay.textContent = notificationMessage;
 }
