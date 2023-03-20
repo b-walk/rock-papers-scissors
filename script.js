@@ -97,7 +97,6 @@ function incrementScore(victor) {
         return 'ERROR';
     }
     victor === 'player' ? ++playerScore : ++computerScore;
-    updateScoreDisplays();
 }
 function updateScoreDisplays() {
     playerScoreDisplay.textContent = playerScore;
@@ -116,4 +115,5 @@ function updateNotificationDisplay(notificationMessage) {
     } else {
         notificationDisplay.textContent =  `${notificationMessage}`;
     }
+    updateScoreDisplays();
 }
