@@ -57,7 +57,7 @@ let computerScore = 0;
 function playRound(playerChoice) {
     let computerChoice = getComputerChoice();
     if (playerChoice === computerChoice) {
-        console.log(drawMessage);
+        notificationDisplay.textContent = drawMessage;
         return;
     };
     let choiceCombination = playerChoice + computerChoice;
@@ -99,14 +99,10 @@ function incrementScore(victor) {
     victor === 'player' ? ++playerScore : ++computerScore;
 }
 function updateScoreDisplays() {
-    playerScoreDisplay.textContent = playerScore.toString();
-    computerScoreDisplay.textContent = computerScore.toString();
+    playerScoreDisplay.textContent = playerScore;
+    computerScoreDisplay.textContent = computerScore;
 }
 
 function updateNotificationDisplay(notificationMessage) {
-    if (!victor) {
-        console.log('ERROR');
-        return 'ERROR';
-    }
     notificationDisplay.textContent = notificationMessage;
 }
