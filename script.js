@@ -10,3 +10,17 @@ let computerChoice;
 const drawMessage = 'Draw!';
 const winMessage = 'Victory!';
 const loseMessage = 'Defeat!';
+
+const rockButton = document.querySelector('#rock');
+const paperButton = document.querySelector('#paper');
+const scissorsButton = document.querySelector('#scissors');
+
+rockButton.addEventListener('click', function (e) {
+    console.log(e);
+});
+paperButton.addEventListener('click', function (e) {
+    console.log(e);
+});
+scissorsButton.addEventListener('click', function (e) {
+    console.log(e);
+});
