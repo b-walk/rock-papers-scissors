@@ -3,18 +3,50 @@ html {
 }
 body {
     min-height: 100vh;
+    background-color: rgb(66, 66, 66);
     display: flex;
     flex-direction: column;
+    gap: 10px;
 }
-
 * {
     font-family: 'Times New Roman', serif, sans-serif;
 }
 
 .flex {
     display: flex;
+    align-items: center;
+}
+.text,
+button,
+.score {
+    color: white;
+    background-color: orangered;
+}
+.bordered {
+    border: solid 2px black;
+    border-radius: 8px;
+    padding: 8px 16px;
+}
+.score {
+    width: 250px;
+    height: 100px;
+    text-align: center;
 }
 
 #header {
     justify-content: space-between;
+    align-items: center;
 }
+#header > h1 {
+    margin-left: auto;
+    margin-right: auto;
+}
+#scoreboard {
+    gap: 10px;
+}
+#notification {
+    font-weight: 700;
+    font-size: 35px;
+    text-align: center;
+}
+
